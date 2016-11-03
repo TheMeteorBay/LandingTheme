@@ -1,0 +1,5 @@
+{
+  "private": {
+  "MAIL_URL": "smtp://your@email.com:password@smtp.mailgun.org:587"
+  }
+}
