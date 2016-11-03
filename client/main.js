@@ -33,3 +33,27 @@ Template.main_layout.rendered = function() {
 })(jQuery); // End of use strict
 
 }
+
+Template.main_layout.events({
+    "submit #contactForm": function(event){
+      var Name = event.target.Name.value;
+      var Phone = event.target.Phone.value;
+      var Subject = event.target.Subject.value;
+      var Email = event.target.Email.value;
+      var Message = event.target.Message.value;
+
+      Meteor.call('sendEmail', Name, Phone, Email, Subject, Message);
+
+      event.target.Name.value="";
+      event.target.Phone.value="";
+      event.target.Email.value="";
+      event.target.Subject.value="";
+      event.target.Message.value="";
+
+      alert("Thanks we will reach out to you asap!");
+
+      // Prevent Submit
+      return false
+    },
+
+});
